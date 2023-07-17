@@ -4,11 +4,11 @@ import "./navbar.scss";
 import useNavbarStore from "@/zustand/navbar-store";
 import Drawer from "./components/Drawer";
 import Logo from "./components/Logo";
-import NavItem from "./components/navItem";
 import { useRouter } from "next/router";
+import NavItem from "./components/navItem";
 
 interface NavbarProps {
-  links: { id: number; label: string; url: string }[];
+  links: { id: number; label: string; url: string; icon?: any }[];
 }
 
 const Navbar: React.FC<NavbarProps> = ({ links }) => {
@@ -36,19 +36,17 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
     <nav className="navbar">
       <Logo />
       <Drawer isOpen={isToggle} onClickOutside={toggle}>
-        <ul className="navbar__list">
+        <ul className={`navbar__list ${isToggle ? "open" : ""}`}>
           {links.map((link) => (
-            <NavItem key={link.id} url={link.url} onClick={handleLinkClick}>
+            <NavItem
+              key={link.id}
+              url={link.url}
+              icon={link.icon}
+              onClick={handleLinkClick}
+            >
               {link.label}
             </NavItem>
           ))}
-          <NavItem
-            key={3453}
-            url={isServerPage ? "/products" : "/admin/main"}
-            onClick={handleLinkClick}
-          >
-            {isServerPage ? "Retour au site" : "Administration"}
-          </NavItem>
         </ul>
       </Drawer>
       <div className="navbar__burger" onClick={toggle}>

@@ -2,21 +2,32 @@
   --color-primary: #grey;
   --color-secondary: #333;
   --color-tertiary: #f1f1f1;
-  --font-family: sans-serif;
   --transition-duration: 0.3s;
+  --animation-duration: 0.5s;
+  --font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .navbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  grid-area: "logo items";
+  grid-template-areas: "logo items";
   align-items: center;
   padding: 1.25rem;
   background-color: var(--color-primary);
-  font-family: var(--font-family);
-
+  position: sticky;
+  top: 0;
   &__logo {
     font-weight: bold;
+    font-size: var(--font-size);
   }
 
   &__items {
@@ -40,17 +51,14 @@
       background-color: var(--color-tertiary);
       padding: 1.25rem;
       z-index: 100;
-      transition: all var(--transition-duration);
+      animation: fadeIn var(--animation-duration);
       color: black;
       font-weight: 700;
-
-      ul {
-        flex-direction: column;
-      }
 
       .navbar__list {
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
       }
     }
 
@@ -65,7 +73,7 @@
         margin: 0.625rem 0.625rem;
         display: flex;
         justify-content: center;
-        font-family: var(--font-family);
+        font-size: var(--font-size);
       }
 
       .navbar__link {
@@ -86,7 +94,7 @@
 
     @media (max-width: 48rem) {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
     }
 
     &-line {
@@ -110,9 +118,12 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
+    opacity: 0;
+    animation: fadeIn var(--animation-duration);
+    animation-fill-mode: forwards;
 
     &.open {
-      display: block;
+      opacity: 1;
     }
   }
 }
