@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import "./navbar.scss";
 import useNavbarStore from "@/zustand/navbar-store";
 import Drawer from "./components/Drawer";
 import Logo from "./components/Logo";
