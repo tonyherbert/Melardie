@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Karantina";
+  src: url("/fonts/Karantina-Bold.ttf") format("truetype"),
+    url("/fonts/Karantina-Light.ttf") format("truetype"),
+    url("/fonts/Karantina-Regular.ttf") format("truetype");
+  font-weight: bold; /* Pour la variation "Bold" */
+  font-style: normal; /* Pour la variation "Bold" */
+
+  /* Pour la variation "Light" */
+  font-family: "Karantina";
+  src: url("/fonts/Karantina-Light.ttf") format("truetype");
+  font-weight: 300; /* ou "lighter" */
+  font-style: normal;
+
+  /* Pour la variation "Regular" (ou Normal) */
+  font-family: "Karantina";
+  src: url("/fonts/Karantina-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
