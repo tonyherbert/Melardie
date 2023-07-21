@@ -7,13 +7,13 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import "../styles/fonts.css";
 import "../styles/globals.css";
 import "../components/Navbar/navbar.scss";
-import MainLayout from "../components/MainLayout";
+import RootLayout from "@/layout";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <MainLayout>
+    <RootLayout>
       <Component {...pageProps} />
-    </MainLayout>
+    </RootLayout>
   );
 };
 
