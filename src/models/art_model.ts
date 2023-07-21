@@ -3,7 +3,7 @@ interface Art {
   id: string;
   name: string;
   description: string;
-  imageUrl: string;
+  image: object;
 }
 
 export default Art;

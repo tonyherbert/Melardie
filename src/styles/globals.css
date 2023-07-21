@@ -14,8 +14,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  /* background-image: url("/backgroundArt.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background-color: #c2eaff;
   font-family: "Karantina", sans-serif;
 }
 

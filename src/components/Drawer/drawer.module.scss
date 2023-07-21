@@ -1,0 +1,19 @@
+// MyComponent.module.scss
+
+.container {
+  display: flex;
+  width: 200px;
+  min-height: 90vh;
+  height: 90vh;
+  margin-left: 1rem;
+}
+
+.drawer {
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centre le contenu verticalement */
+  align-items: center;
+}

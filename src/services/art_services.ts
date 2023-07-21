@@ -1,33 +1,35 @@
-// services/ItemService.ts
+// services/Artservice.ts
 import { addArt, deleteArt, getArts } from "@/controllers/art_controller";
 import Art from "@/models/art_model";
 import { useState, useEffect } from "react";
 
-export const useItems = () => {
-  const [items, setItems] = useState<Art[]>([]);
+export const useArts = () => {
+  const [arts, setArts] = useState<Art[]>([]);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const fetchedItems = await getArts();
-      setItems(fetchedItems);
+    const fetchArts = async () => {
+      const fetchedArts = await getArts();
+      console.log("query ", process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
+
+      setArts(fetchedArts);
     };
-    fetchItems();
+    fetchArts();
   }, []);
 
-  return { items };
+  return { arts };
 };
 
 export const useAddItem = () => {
-  const addItemToFirestore = async (item: Art, imageFile: File) => {
-    await addArt(item, imageFile);
+  const addItemToFirestore = async (art: Art, imageFile: File) => {
+    await addArt(art, imageFile);
   };
 
   return { addItemToFirestore };
 };
 
 export const useDeleteItem = () => {
-  const deleteItemFromFirestore = async (itemId: string, imageUrl: string) => {
-    await deleteArt(itemId, imageUrl);
+  const deleteItemFromFirestore = async (artId: string, imageUrl: string) => {
+    await deleteArt(artId, imageUrl);
   };
 
   return { deleteItemFromFirestore };
